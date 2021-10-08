@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>アップロード画面</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+
+        <h1>Flask & openpyxl - {{ title }}</h1>
+
+        <form method="POST" action="/upload_register" 
+              enctype="multipart/form-data">
+            <label>
+                タイトル：<input type="text" name="title">
+            </label>
+            <p></p>
+            <label>
+                ファイル：<input type="file" name="file">
+            </label>
+            <p></p>
+            <button type="submit">送信</button>
+            <button type="reset">リセット</button>
+        </form>
+
+        <p><a href="/">TOPに戻る</a></p>
+
+        <hr color="rgb(0, 0, 0)" size="6">
+        <footer>
+            <p>作成日：◯◯✕✕△△</p>
+        </footer>
+    </body>
+
+</html>

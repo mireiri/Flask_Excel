@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ログイン画面</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+        <!--flashメッセージ-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="background-color: lightblue;">
+                    <b>{{ message }}</b></p>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+
+        <h1>Flask & openpyxl - {{ title }}</h1>
+
+        <form method="POST" action="/logincheck">
+            <input placeholder="ID" type="text" name="id">
+            <input placeholder="パスワード" type="password" name="password">
+            <input type="submit" value="送信">
+        </form>
+
+        <p></p>
+
+        <hr color="rgb(0, 0, 0)" size="6">
+        <footer>
+            <p>作成日：◯◯✕✕△△</p>
+        </footer>
+    </body>
+</html>

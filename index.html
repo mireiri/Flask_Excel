@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>トップ画面</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body>
+            <!--flashメッセージ-->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="background-color: lightblue;">
+                    <b>{{ message }}</b></p>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+        
+        <h1>Flask & openpyxl - {{ title }}</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>作成日</th>
+                <th>ダウンロード</th>
+                <th>削除</th>
+            </tr>
+            {% for i in reg_data %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.title }}</td>
+                <td>{{ i.date.strftime('%Y年%m月%d日 %H:%M') }}</td>
+                <td>
+                    <input type="button" onclick="location.href='/download/{{ i.id }}'"
+                     value="ダウンロード">
+                </td>
+                <td>
+                    <input type="button" onclick="location.href='/delete/{{ i.id }}'"
+                     value="削除" style="background: red;color:white">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <p><a href="/upload">新規アップロード</a></p>
+        <p><a href="/logout">ログアウト</a></p>
+
+        <hr color="rgb(0, 0, 0)" size="6">
+        <footer>
+            <p>作成日：◯◯✕✕△△</p>
+        </footer>
+    </body>
+
+</html>
