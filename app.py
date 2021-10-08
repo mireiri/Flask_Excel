@@ -74,7 +74,7 @@ def logincheck():
     if session['login']:
         return redirect(url_for('index'))
     else:
-        flash('もう一度 ID とPW を正しく入力してください')
+        flash('もう一度 ID と PW を正しく入力してください')
         return redirect(url_for('login'))
 
 
